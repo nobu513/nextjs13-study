@@ -1,9 +1,9 @@
-'use client';
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import LoadingPage from './loading';
-import Courses from './componets/Courses';
-import CourseSearch from './componets/CourseSearch';
+"use client";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import LoadingPage from "./loading";
+import Courses from "./componets/Courses";
+import CourseSearch from "./componets/CourseSearch";
 
 const HomePage = () => {
   const [courses, setCourses] = useState([]);
@@ -11,7 +11,7 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetchCourses = async () => {
-      const res = await fetch('/api/courses');
+      const res = await fetch("/api/courses");
       const data = await res.json();
       setCourses(data);
       setLoading(false);
@@ -26,7 +26,7 @@ const HomePage = () => {
 
   return (
     <>
-      <h1>Welcome To Traversy Meida</h1>
+      <h1 className="text-4xl">Welcome To Traversy Meida</h1>
       <CourseSearch getSearchResults={(results) => setCourses(results)} />
       <Courses courses={courses} />
     </>
